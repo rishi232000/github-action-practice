@@ -1,0 +1,22 @@
+#If anyone is changing the python file then the linter will check if the syntax, format, identification are correct or not
+
+name: Auto Lint
+
+on:
+  push: 
+    paths: "*.py"
+
+jobs:
+  code-linting:
+    runs-on: ubuntu-latest
+    steps:
+      - name: clone/checkout the code
+        uses: actions/checkout@v7              # This step will automatically clone the code of the current branch into the runner 
+
+      - name: Install Linter                    #This step will install the linter tool
+        run: pip install ruff
+
+      - name: Check the file for linter         # this step will run the linter
+        run: ruff .
+
+        
