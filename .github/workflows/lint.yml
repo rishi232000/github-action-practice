@@ -18,6 +18,6 @@ jobs:
         run: pip install ruff
 
       - name: Check the file for linter         # this step will run the linter
-        run: ruff .
+        run: ruff check .
 
         
